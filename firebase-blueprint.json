@@ -1,0 +1,28 @@
+{
+  "entities": {
+    "Booking": {
+      "title": "Booking",
+      "description": "Represents an AC Service or Repair Booking ticket",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique JOB ID of the booking" },
+        "name": { "type": "string", "description": "Customer name" },
+        "phone": { "type": "string", "description": "Customer contact number" },
+        "serviceType": { "type": "string", "description": "Selected type of AC service" },
+        "brand": { "type": "string", "description": "AC unit brand" },
+        "issue": { "type": "string", "description": "Details of the problem or symptom" },
+        "timestamp": { "type": "string", "description": "Formatted short time string at creation" },
+        "status": { "type": "string", "enum": ["Pending", "Confirmed", "Completed"], "description": "Lifecycle state of the service ticket" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Firestore server timestamp of booking creation" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Firestore server timestamp of booking last update" }
+      },
+      "required": ["id", "name", "phone", "serviceType", "brand", "issue", "status"]
+    }
+  },
+  "firestore": {
+    "/bookings/{bookingId}": {
+      "schema": "Booking",
+      "description": "Collection of all AC customer repair and service tickets"
+    }
+  }
+}

@@ -24,4 +24,5 @@ export interface Booking {
   issue: string;
   timestamp: string;
   status: 'Pending' | 'Confirmed' | 'Completed';
+  tech?: string;
 }

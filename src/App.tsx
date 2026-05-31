@@ -22,8 +22,6 @@ import {
 import SnowCanvas from './components/SnowCanvas';
 import AcSvg from './components/AcSvg';
 import BookingForm from './components/BookingForm';
-import BookingPipeline from './components/BookingPipeline';
-import DriveConsole from './components/DriveConsole';
 import { Service, ComponentItem, Booking } from './types';
 import { ServiceIllustration, ComponentIllustration } from './components/ServiceIllustration';
 
@@ -69,7 +67,6 @@ const reviews = [
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedSymptom, setSelectedSymptom] = useState({ issue: '', component: '' });
-  const [bookings, setBookings] = useState<Booking[]>([]);
 
   // Telemetry tick state to simulate live operating changes
   const [telemetryTick, setTelemetryTick] = useState(0);
@@ -391,17 +388,7 @@ export default function App() {
   };
 
   const handleBookingAdded = (newBooking: Booking) => {
-    setBookings(prev => [newBooking, ...prev]);
-  };
-
-  const handleCancelBooking = (id: string) => {
-    setBookings(prev => prev.filter(b => b.id !== id));
-  };
-
-  const handleUpdateStatus = (id: string, newStatus: 'Pending' | 'Confirmed' | 'Completed') => {
-    setBookings(prev =>
-      prev.map(b => (b.id === id ? { ...b, status: newStatus } : b))
-    );
+    console.log("Local booking request processed:", newBooking);
   };
 
   return (
@@ -461,7 +448,7 @@ export default function App() {
                 <X size={18} />
               </button>
             </div>
-            <nav className="flex flex-col gap-4 text-sm font-semibold tracking-wider uppercase font-orbitron">
+            <nav className="flex flex-col gap-4 text-sm font-semibold tracking-wider uppercase font-orbitron pb-4">
               <a
                 href="#services"
                 onClick={() => setMobileMenuOpen(false)}
@@ -956,10 +943,7 @@ export default function App() {
 
           {/* Extra contact context / Maps Details */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="glass border border-white/15 h-full p-6 md:p-8 rounded-2xl space-y-5">
-              <h4 className="font-orbitron font-bold text-[#00e5ff] tracking-wide text-sm uppercase">
-                Annai Headquarters HQ
-              </h4>
+            <div className="glass border border-white/15 h-full p-6 md:p-8 rounded-2xl space-y-5 col-span-1">
               <p className="text-xs text-[#8a95aa] leading-relaxed">
                 We accommodate residential and office deployments covering all corners of Srirangam, Thuvakudi, Thillai Nagar, Lalgudi, and broader Tiruchirappalli districts.
               </p>
@@ -1005,15 +989,7 @@ export default function App() {
           </div>
         </div>
 
-        {/* Live Service Job Pipeline (Dynamic interactive panel for preview validation) */}
-        <BookingPipeline
-          bookings={bookings}
-          onCancelBooking={handleCancelBooking}
-          onUpdateStatus={handleUpdateStatus}
-        />
-
-        {/* Secure Cloud Backups & Diagnostic Asset Explorer connected with user's Google Drive */}
-        <DriveConsole bookings={bookings} />
+        {/* Admin Operations removed per user request */}
       </section>
 
       {/* ─── FLOATING ACTION BUTTONS ─── */}

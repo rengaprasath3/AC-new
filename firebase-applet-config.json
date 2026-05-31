@@ -3,6 +3,7 @@
   "appId": "1:19615305055:web:64e03a23f18ab18228faea",
   "apiKey": "AIzaSyAo-zLhnQSCqAQLT12eH8XrJblEX_Hf_Gc",
   "authDomain": "restful-compiler-2szp9.firebaseapp.com",
+  "firestoreDatabaseId": "ai-studio-6e719efd-84a4-43b1-8679-92aa72ef2908",
   "storageBucket": "restful-compiler-2szp9.firebasestorage.app",
   "messagingSenderId": "19615305055",
   "measurementId": ""

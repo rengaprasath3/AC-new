@@ -119,7 +119,7 @@ _Form submitted from live portal._`;
           <Check className="text-[#00ffaa] shrink-0 mt-0.5" size={16} />
           <div className="text-xs text-[#b8f0ff]">
             <span className="font-bold text-[#00ffaa] block font-orbitron uppercase text-[10px] tracking-wider mb-0.5">WhatsApp Booking Launched!</span>
-            We pre-filled your service details for the WhatsApp message. A copy of this ticket is also active in the local service review pipeline below.
+            We pre-filled your service details for the WhatsApp message. Tap the button to directly connect with our repair dispatcher.
           </div>
         </div>
       )}
