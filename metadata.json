@@ -1,0 +1,6 @@
+{
+  "name": "Annai AC Service",
+  "description": "Next-Generation AC Installation, Repair, and Maintenance in Tiruchirappalli",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
